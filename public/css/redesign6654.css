@@ -1,0 +1,280 @@
+body {
+    font-family: TUIType Cyrillic, serif;
+}
+p, li {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 35px;
+    color: #132C59;
+}
+.headerTop {
+    height: 97px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-style: normal;
+    line-height: 71px;
+}
+.headerTop .phone {
+    margin-left: auto;
+    color: #132C59;
+    font-size: 26px;
+    font-weight: bold;
+}
+#main a {
+    color: #fff;
+}
+
+.header {
+    background: #132C59;
+    color: #fff;
+    display: flex;
+    /*font-family: TUIType Cyrillic Light, serif;*/
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 66px;
+    text-transform: uppercase;
+}
+.header a {
+    margin-right: 40px;
+    cursor: pointer;
+}
+.bg {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background: url("../images/bg%20.png") no-repeat center;
+}
+.bg .container {
+    padding-top: 70px;
+}
+.bg h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+.bg h2 {
+    font-size: 24px;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+.bg .btn {
+    width: 257px;
+    height: 60px;
+    background: #FF5050;
+    border-radius: 5px;
+    font-size: 22px;
+    line-height: 46px;
+}
+
+.bt-w {
+    font-weight: bold;
+    width: 180px;
+    background: #FBE04C;
+    border-radius: 5px;
+    border: none;
+}
+.languages{
+    display: none;
+    position: absolute;
+    width: 60px;
+    background-color: #fff;
+    top: 55px;
+    right: 17px;
+}
+.languages a{
+    color: #132C59;
+}
+.lang {
+    color: #132C59;
+    margin-left: 54px;
+    cursor: pointer;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+
+#about {
+    margin-top: 65px;
+}
+.about {
+    background-image: url("../images/surf.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+#about p {
+    margin-top: 30px;
+}
+
+#command {
+    margin-top: 100px;
+}
+.office {
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 20px 15px 15px;
+    color: #132C59;
+    font-size: 16px;
+    height: 100%;
+}
+.office ul {
+    margin-left: -21px;
+}
+#form {
+    background: #132C59;
+    border-radius: 5px;
+    margin-top: 98px;
+    color: #fff;
+    padding: 50px 105px 35px;
+}
+#form h6 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 35px;
+    text-align: center;
+}
+#form input {
+    background: #132C59;
+    border-radius: 5px;
+    color: #fff;
+}
+#form .btn-warning {
+    background-color: #FEE100;
+}
+
+iframe {
+    width: 100%;
+    max-height: 350px;
+}
+#contacts {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+#contacts a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 40px;
+    color: #132C59;
+}
+.contactPhone:before {
+    content: url("../images/telephone%201.svg");
+    margin-right: 7px
+}
+.contactMap:before {
+    content: url("../images/place-localizer%201.svg");
+    margin-right: 7px
+}
+.contactMail:before {
+    content: url("../images/envelope%201.svg");
+    margin-right: 7px
+}
+.icons a {
+    margin-right: 13px;
+}
+.burgerMenu {
+    position: absolute;
+    background: #132C59;
+    right: 10px;
+    min-width: 230px;
+}
+.burgerMenu a {
+    color: #fff;
+    font-size: 18px;
+    line-height: 35px;
+    text-transform: uppercase;
+}
+.burgerMenu a svg {
+    margin-bottom: 5px;
+}
+.l-active{
+    text-decoration: underline;
+}
+.logo{
+    max-width: 90px;
+}
+@media only screen and (max-width: 460px) {
+    .bg h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .bg {
+        height: 637px;
+        max-height: calc(100vh - 97px);
+        background: url("../images/bgm.jpg") no-repeat center;
+    }
+
+    .bg h2 {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .bg .container {
+        padding-top: 50px;
+    }
+
+    .bg .btn {
+        height: unset;
+        font-size: 18px;
+        width: 240px;
+        margin-left: calc(50% - 120px);
+    }
+
+    .about {
+        height: 350px;
+        margin: 15px;
+        width: calc(100% - 20px);
+        flex:unset ;
+    }
+
+    p, li {
+        font-size: 14px;
+        line-height: unset;
+    }
+
+    h4 {
+        font-size: 40px;
+    }
+
+    #command {
+        margin-top: 20px;
+    }
+
+    #form {
+        margin-top: 48px;
+        padding: 10px;
+    }
+
+    #form h6 {
+        font-size: unset;
+        line-height: unset;
+    }
+
+    #contacts {
+        margin-top: 20px;
+    }
+
+    #contacts a {
+        font-size: 14px;
+        line-height: unset;
+    }
+
+    .headerTop .phone {
+        font-size: 18px;
+        text-align: center;
+        margin-right: 40px;
+    }
+
+}

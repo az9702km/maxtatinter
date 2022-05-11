@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillic-Bold.woff2') format('woff2'),
+        url('TUITypeCyrillic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillic-Regular.woff2') format('woff2'),
+        url('TUITypeCyrillic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillic-Bold.woff2') format('woff2'),
+        url('TUITypeCyrillic-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillicLight-Regular.woff2') format('woff2'),
+        url('TUITypeCyrillicLight-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillic-Regular.woff2') format('woff2'),
+        url('TUITypeCyrillic-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillicLight-Bold.woff2') format('woff2'),
+        url('TUITypeCyrillicLight-Bold.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillicLight-Regular.woff2') format('woff2'),
+        url('TUITypeCyrillicLight-Regular.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType';
+    src: url('TUIType-Light.woff2') format('woff2'),
+        url('TUIType-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'TUIType Cyrillic';
+    src: url('TUITypeCyrillicLight-Bold.woff2') format('woff2'),
+        url('TUITypeCyrillicLight-Bold.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
