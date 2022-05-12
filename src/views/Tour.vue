@@ -2,7 +2,7 @@
   <div class="container pt-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><router-link to="/">Главное</router-link></li>
+        <li class="breadcrumb-item"><router-link to="/">{{ $t('linkMain') }}</router-link></li>
         <li class="breadcrumb-item active" aria-current="page">{{tour.tourName}}</li>
       </ol>
     </nav>
@@ -15,19 +15,19 @@
       <div class="col-md-4">
         <div class="card position-sticky fixed-top">
           <div class="card-header">
-            Забронировать тур
+            {{ $t('bookTourTitle') }}
           </div>
           <div class="card-body">
             <h5 class="card-title font-weight-bold">{{tour.tourName}}</h5>
             <div class="row mb-4">
               <div class="col-md-12">
                 <div class="d-flex flex-column px-3 py-2 bg-light rounded">
-                  <small class="text-muted mb-0">Цена от</small>
+                  <small class="text-muted mb-0">{{ $t('bookingPrice') }}</small>
                   <div class="h3 mb-0 font-weight-bold text-danger">{{tour.tourPrice}}</div>
-                  <p>Свободных мест {{tour.available}}</p>
+                  <p>{{ $t('availableSeat') }} {{tour.available}}</p>
                 </div>
                 <div class="d-flex flex-column mt-2">
-                  <small class="text-muted mb-0">Количество туристов</small>
+                  <small class="text-muted mb-0">{{ $t('touristsNum') }}</small>
                   <div class="d-flex mt-1">
                     <div class="d-flex align-items-center border rounded">
                       <button @click="deCrease" class="btn btn-light">-</button>
@@ -46,7 +46,7 @@
                   </div>
                   <div class="flex-grow-1">
                     <div class="h6 mb-0">{{ tour.tourCountry }}</div>
-                    <div class="text-muted">из Ташкента</div>
+                    <div class="text-muted">{{ $t('fromLoc') }}</div>
                   </div>
                 </div>
                 <div class="d-flex align-items-center">
@@ -55,7 +55,7 @@
                   </div>
                   <div class="flex-grow-1">
                     <div class="h6 mb-0">{{tour.tourDate}}</div>
-                    <div class="text-muted">{{ tour.tourDuration }} ночей</div>
+                    <div class="text-muted">{{ tour.tourDuration }} {{ $t('nights') }}</div>
                   </div>
                 </div>
               </div>
@@ -66,7 +66,7 @@
                   </div>
                   <div class="flex-grow-1">
                     <div class="h6 mb-0">family room</div>
-                    <div class="text-muted">{{ tourists }} взрослых</div>
+                    <div class="text-muted">{{ tourists }} {{ $t('touristsAge') }}</div>
                   </div>
                 </div>
                 <div class="d-flex align-items-center">
@@ -74,8 +74,8 @@
                     <i class="fa-solid fa-calendar"></i>
                   </div>
                   <div class="flex-grow-1">
-                    <div class="h6 mb-0">Питание</div>
-                    <div class="text-muted">Все включено</div>
+                    <div class="h6 mb-0">{{ $t('eating') }}</div>
+                    <div class="text-muted">{{ $t('includes') }}</div>
                   </div>
                 </div>
               </div>
@@ -84,13 +84,13 @@
             <div class="row mb-4">
               <div class="col-md-12">
                 <div class="d-flex flex-column ">
-                  <small class="text-muted mb-0">Итог</small>
+                  <small class="text-muted mb-0">{{ $t('total') }}</small>
                   <div class="h6 mb-0 font-weight-bold">{{ tour.tourPrice * tourists }}</div>
                 </div>
               </div>
             </div>
             <button type="button" class="btn btn-primary" data-toggle="modal" :data-target="modalsID">
-              Забронировать
+              {{ $t('bookNow') }}
             </button>
           </div>
         </div>
@@ -101,8 +101,9 @@
 </template>
 
 <script>
-  import data from '@/db.json'
+  import data from '@/dbLocale.json'
   import Modal from '@/components/Modal.vue'
+  import i18n from '@/i18n'
   export default {
     name: 'Tour',
     components:{
@@ -113,11 +114,20 @@
         tourists: 1,
         tour: null,
         modalsID: String,
-        mSendID: String
+        mSendID: String,
+        lang: this.$i18n.locale
+      }
+    },
+    watch: {
+      '$i18n.locale'(newVal, oldVal) {
+        let tourData = data.tours[this.$i18n.locale][this.$route.params.id - 1]
+        if(tourData){
+          this.tour = tourData
+        }
       }
     },
     created(){
-      const tourData = data.tours[this.$route.params.id - 1]
+      let tourData = data.tours[this.$i18n.locale][this.$route.params.id - 1]
       if(tourData){
         this.tour = tourData
       }

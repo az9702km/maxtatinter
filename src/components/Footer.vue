@@ -3,11 +3,10 @@
     <section id="contacts">
       <div class="row">
         <div class="col-12 col-md-5">
-          <h4 class="mb-4 mt-5">Контакты</h4>
+          <h4 class="mb-4 mt-5">{{ $t('linkContacts') }}</h4>
           <a class="contactPhone" href="tel:+998953238080">+998 95 323 80 80</a>
           <br>
-          <a class="contactMap" href="javascript:void(0);">Ташкент, Мирабадский район, ул. Чимкент, дом 8 кв. 33
-          </a>
+          <a class="contactMap" href="javascript:void(0);">{{ $t('TeamAdres') }}</a>
           <br>
           <a class="contactMail" href="mailto:info@maxtatinter.uz">info@maxtatinter.uz</a>
           <br>

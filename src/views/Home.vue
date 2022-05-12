@@ -4,65 +4,53 @@
       <div class="container">
         <div class="row">
           <div class="col col-md-8">
-            <a href="#main">Главная</a>
-            <a href="#about">О нас</a>
-            <a href="#command">Наша команда</a>
-            <a href="#contacts">Наши контакты</a>
-            <router-link to="/tour">Tur</router-link>
+            <a href="#main">{{ $t('linkMain') }}</a>
+            <a href="#about">{{ $t('linkAbt') }}</a>
+            <a href="#tours">{{ $t('linkTours') }}</a>
+            <a href="#command">{{ $t('linkTeam') }}</a>
+            <a href="#contacts">{{ $t('linkContacts') }}</a>
           </div>
         </div>
       </div>
     </div>
     <div class="bg">
       <div class="container">
-        <h1>Все ради Вашей улыбки!</h1>
-        <h2>Мы создаем <b>доступный отдых</b> <br> для наших клиентов <b>по всему миру</b></h2>
+        <h1>{{ $t('welcomMsg') }}</h1>
+        <h2 v-html="$t('welcomTxt')"></h2>
       </div>
     </div>
   </section>
   <div class="container">
     <section id="about">
       <div class="row">
-        <h4 class="ml-3 d-md-none">О нас</h4>
+        <h4 class="ml-3 d-md-none">{{ $t('AbtTitle') }}</h4>
         <div class="col-12 col-md-5 about"></div>
         <div class="col-12 col-md-7 pl-md-5">
-          <h4 class="d-none d-md-block">О нас</h4>
-          <p>Одна из ведущих туристических компаний Узбекистана и Центральной Азии, основанная в 2020 году на базе
-            туристического оператора iTours и лидера на туроператорском рынке СНГ – TUI Russia & CIS,
-            являющегося частью крупнейшего международного туристического холдинга TUI Group.
-          </p>
-          <p>Туроператор iTours успешно вёл свою деятельность на рынке Узбекистана с 2001 года и занимал
-            лидирующие позиции среди национальных компаний, что обеспечило TUI лидерские позиции на
-            узбекистанском рынке в качестве крупнейшего многопрофильного туроператора. В 2016 году туроператор
-            стал членом ассоциации Фонда гарантирования туристов Узбекистана «Туристік Камкор», вступить в
-            который могут туроператоры с наличием банковских гарантий, принимающие на себя обязательства по
-            защите прав граждан, выезжающих за рубеж.
-          </p>
-          <p>TUI Uzbekistan and Central Asia имеет партнёрские отношения более чем с 1000 агентствами на
-            территории Казахстана, Киргизии и Узбекистана. Компания предлагает экскурсионный и пляжный отдых по
-            таким направлениям как Турция, Грузия, Египет, ОАЭ, Мальдивы, Таиланд и страны Европейского союза.
-          </p>
+          <h4 class="d-none d-md-block">{{ $t('AbtTitle') }}</h4>
+          <p>{{ $t('AbtTxtOne') }}</p>
+          <p>{{ $t('AbtTxtSecond') }}</p>
+          <p>{{ $t('AbtTxtThird') }}</p>
         </div>
       </div>
     </section>
     <section id="tours">
-      <h4 class="mb-4">Туры</h4>
-      <h6 class="mb-5">Туры Fun & Sun Uzbekistan</h6>
+      <h4 class="mb-4">{{ $t('ToursTitle') }}</h4>
+      <h6 class="mb-5">{{ $t('ToursSubTitle') }}</h6>
       <div class="row">
-        <div :key="tour.id" v-for="tour in tours" class="col">
+        <div :key="tour.id" v-for="tour in tours[$i18n.locale]" class="col mb-3">
           <CardTour :tour="tour" />
         </div>
       </div>
     </section>
     <section id="command">
-      <h4 class="mb-4">Наша команда</h4>
-      <h6 class="mb-5">Офисы Fun & Sun Uzbekistan</h6>
+      <h4 class="mb-4">{{ $t('TeamTitle') }}</h4>
+      <h6 class="mb-5">{{ $t('TeamSubTitle') }}</h6>
       <div class="row">
         <div class="col-12 col-md-4 mb-2 mb-md-0">
           <div class="office">
-            <b>Мирабадский район, ул. Чимкент, дом 8 кв. 33</b> <br><br>
+            <b>{{ $t('TeamAdres') }}</b> <br><br>
             <ul>
-              <li>Ахметов Рамиль, Директор офиса</li>
+              <li>{{ $t('TeamDirector') }}</li>
               <!-- <li>Мавлюда Саидакбарова, Менеджер по туризму</li>
               <li>Ирина Закирова, Менеджер по туризму</li>
               <li>Ильхом Гайбуллаев, Менеджер по туризму</li>
@@ -96,20 +84,20 @@
       </div>
     </section>
     <section id="form">
-      <h6>Готовы к отдыху? Оставьте заявку, мы поможем сделать Ваш отдых самым незабываемым</h6>
-      <form action="hey/mail.php" data-lang="ru" class="form-row mt-md-5">
+      <h6>{{ $t('FormTitle') }}</h6>
+      <form action="" data-lang="ru" class="form-row mt-md-5">
         <div class="form-group col-12 col-md-4">
-          <input type="text" class="form-control" required placeholder="Ваше имя" name="name">
+          <input type="text" class="form-control" required :placeholder="$t('FormName')" name="name">
         </div>
         <div class="form-group col-12 col-md-4">
-          <input type="text" class="form-control" required id="phone" placeholder="Ваш номер телефона"
+          <input type="text" class="form-control" required id="phone" :placeholder="$t('FormPhone')"
               name="phone">
         </div>
         <div class="form-group col-12 col-md-4">
-          <button class="btn btn-warning col-12" type="submit">
+          <button class="btn btn-warning col-12" type="submit" @click="$event.preventDefault()">
             <span class="spinner-border spinner-border-sm" style="display: none" role="status"
                 aria-hidden="true"></span>
-            Отправить
+            {{ $t('FormSubmit') }}
           </button>
         </div>
       </form>
@@ -120,7 +108,8 @@
 <script>
   // @ is an alias to /src
   import CardTour from '@/components/CardTour.vue'
-  import data from '@/db.json'
+  import data from '@/dbLocale.json'
+  import i18n from '@/i18n';
 
   export default {
     name: 'Home',
@@ -129,7 +118,7 @@
     },
     data(){
       return{
-        tours: data.tours
+        tours: data.tours,
       }
     },
   }

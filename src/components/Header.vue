@@ -3,11 +3,11 @@
   <section class="container">
     <div class="row headerTop">
       <div class="col-3">
-        <img src="images/logo.png" alt="" class="logo">
+        <router-link to="/"><img src="images/logo.png" alt="" class="logo"></router-link>
       </div>
       <div class="col-9 d-flex justify-content-end align-items-center">
         <a class="phone" href="tel:+998953238080">+998 95 323 80 80</a>
-        <select name="lang" v-model="lang" @change="setLang($event)" class="custom-select d-none d-md-block lang" style="width:5rem">
+        <select name="lang" v-model="$i18n.locale" class="custom-select d-none d-md-block lang" style="width:5rem">
           <option value="ru">RU</option>
           <option value="uz">UZ</option>
           <option value="en">EN</option>
@@ -28,34 +28,35 @@
         </p>
       </div>
     </div>
-    <div style="display: none" class="burgerMenu p-4">
-      <a :class="['mr-5', lang == 'ru' ? 'l-active' : '']" href="#">RU</a>
-      <a :class="['mr-5', lang == 'uz' ? 'l-active' : '']" href="uz/index.html">UZ</a>
-      <a :class="['mr-5', lang == 'en' ? 'l-active' : '']" href="en/index.html">EN</a>
+    <div style="display: none; z-index: 1024;" class="burgerMenu p-4">
+      <span :class="['mr-5 text-white', $i18n.locale == 'ru' ? 'l-active' : '']" @click="$i18n.locale='ru'">RU</span>
+      <span :class="['mr-5 text-white', $i18n.locale == 'uz' ? 'l-active' : '']" @click="$i18n.locale='uz'">UZ</span>
+      <span :class="['mr-5 text-white', $i18n.locale == 'en' ? 'l-active' : '']" @click="$i18n.locale='en'">EN</span>
       <br><br>
-      <a href="#main">Главная</a>
+      <router-link v-show="this.$route.params.id" to="/">{{ $t('linkMain') }}</router-link>
+      <a v-show="!this.$route.params.id" href="#main">{{ $t('linkMain') }}</a>
       <br>
-      <a href="#about">О нас</a>
+      <a v-show="!this.$route.params.id" href="#about">{{ $t('linkAbt') }}</a>
       <br>
-      <a href="#command">Наша команда</a>
+      <a v-show="!this.$route.params.id" href="#tours">{{ $t('linkTours') }}</a>
       <br>
-      <a href="#contacts">Наши контакты</a>
+      <a v-show="!this.$route.params.id" href="#command">{{ $t('linkTeam') }}</a>
+      <br>
+      <a v-show="!this.$route.params.id" href="#contacts">{{ $t('linkContacts') }}</a>
     </div>
   </section>
 </template>
 
 <script>
+import i18n from '@/i18n';
   export default {
     name: 'Header',
     data(){
       return {
-        lang: 'ru',
+        lang: i18n.global.locale
       }
     },
     methods:{
-      setLang(lang){
-        console.log(lang.target.value);
-      }
     }
   }
 </script>
